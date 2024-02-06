@@ -5,20 +5,9 @@ import { version } from '../../../../package.json';
 
 export function setupSwagger(app: INestApplication): void {
   const swaggerOptions = new DocumentBuilder()
-    .setTitle('Doculink Main Rest API')
-    .setDescription('Documentation for Doculink Main Rest Api')
+    .setTitle('Author-Book Main Rest API')
+    .setDescription('Documentation for Author-Book Main Rest Api')
     .setVersion(version)
-    .addBearerAuth(
-      {
-        type: 'http',
-        scheme: 'bearer',
-        bearerFormat: 'JWT',
-        name: 'JWT',
-        description: 'Enter JWT token',
-        in: 'header',
-      },
-      'JWT-auth'
-    )
     .build();
   const document = SwaggerModule.createDocument(app, swaggerOptions);
 

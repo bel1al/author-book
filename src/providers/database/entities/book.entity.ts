@@ -1,16 +1,17 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
-import { Author } from '../author/entity/author.entity';
+import { AuthorEntity } from './author.entity';
+import { TimeColumns } from './common.entity';
 
 @Entity()
-export class Book {
+export class BookEntity extends TimeColumns {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
   name: string;
 
-  @ManyToOne(() => Author, (author) => author.books)
-  author: Author;
+  @ManyToOne(() => AuthorEntity, (author) => author.books)
+  author: AuthorEntity;
 
   @Column()
   content: string;

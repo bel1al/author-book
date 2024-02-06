@@ -1,8 +1,6 @@
 import { INestApplication, ValidationPipe } from '@nestjs/common';
 import { Logger } from 'nestjs-pino';
 
-import { API_PREFIX } from '../../constants/common.js';
-
 export function setupBaseConfigurations(app: INestApplication): void {
   const validationPipeOptions = {
     whitelist: true,
@@ -10,14 +8,14 @@ export function setupBaseConfigurations(app: INestApplication): void {
     transform: true,
   };
   app.useGlobalPipes(new ValidationPipe(validationPipeOptions));
-  app.setGlobalPrefix(API_PREFIX);
+  app.setGlobalPrefix('api');
 
   app.useLogger(app.get(Logger));
 
   app.enableShutdownHooks();
 
   app.enableCors({
-    origin: ['http://localhost:3010', 'http://127.0.0.1:3010'],
+    origin: [],
     exposedHeaders: ['Content-Disposition'],
     credentials: true,
   });

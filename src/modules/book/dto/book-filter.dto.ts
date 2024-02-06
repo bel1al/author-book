@@ -1,20 +1,12 @@
-import { IsString, IsOptional, IsEmail } from 'class-validator';
-import { IAuthorFilter } from '../interfaces/author-filter.interface';
+import { IsString, IsOptional } from 'class-validator';
+import { IBookFilter } from '../interfaces/book-filter.interface';
 
-export class AuthorFilterDto implements IAuthorFilter {
+export class BookFilterDto implements IBookFilter {
   @IsOptional()
   @IsString()
   name?: string;
 
   @IsOptional()
   @IsString()
-  surname?: string;
-
-  @IsOptional()
-  @IsEmail()
-  email?: string;
-
-  @IsOptional()
-  @IsString()
-  phoneNumber?: string;
+  content?: string;
 }

@@ -1,6 +1,7 @@
 import { IsString, IsOptional, IsEmail } from 'class-validator';
+import { IAuthorFilter } from '../interfaces/author-filter.interface';
 
-export class AuthorFilterDto {
+export class AuthorFilterDto implements IAuthorFilter {
   @IsOptional()
   @IsString()
   name?: string;

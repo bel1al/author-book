@@ -1,9 +1,5 @@
-export interface IAuthorFilter {
+export interface IBookFilter {
   name?: string;
 
-  surname?: string;
-
-  email?: string;
-
-  phoneNumber?: string;
+  content?: string;
 }
